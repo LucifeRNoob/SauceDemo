@@ -10,6 +10,7 @@ public class BaseTest {
 
     WebDriver driver;
 
+
     @BeforeMethod
     public void setUp(){
         PropertiesManager propertiesManager = new PropertiesManager();
