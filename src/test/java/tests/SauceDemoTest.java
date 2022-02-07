@@ -49,7 +49,7 @@ public class SauceDemoTest extends BaseTest {
     }
 
     @Test
-    public void productPriceAndName() {
+    public void productPriceAndNameTest() {
         driver.get(WebUrls.BASE_SAUCE_DEMO_URL);
         //LogIn
         driver.findElement(By.id("user-name")).sendKeys(UserCredentials.USER_NAME);
