@@ -10,7 +10,7 @@ public class Locators extends BaseTest {
 
     @Test
     public void locators() {
-        driver.get(WebUrls.SAUCE_DEMO_URL);
+        driver.get(WebUrls.BASE_SAUCE_DEMO_URL);
         //Login
         driver.findElement(By.id("user-name")).sendKeys(UserCredentials.USER_NAME);
         driver.findElement(By.id("password")).sendKeys(UserCredentials.PASSWORD);
