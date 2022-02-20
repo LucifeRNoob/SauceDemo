@@ -37,6 +37,7 @@ public class SauceDemoTest extends BaseTest {
     @Test
     public void linkedinLogoElement(){
         loginPage.login();
+        removeTimeout();
         inventoryPage.clickLinkedinLink();
         linkedinPage.switchOnNewTab();
         Assert.assertTrue(linkedinPage.checkLogoElement(),"Element is not exist");

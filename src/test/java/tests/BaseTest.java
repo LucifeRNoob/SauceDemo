@@ -27,7 +27,7 @@ public class BaseTest {
         System.setProperty("webdriver.chrome.driver", propertiesManager.get("PATH_TO_CHROME_DRIVER"));
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        removeTimeout();
+        setTimeout();
         loginPage = new LoginPage(driver);
         inventoryPage = new InventoryPage(driver);
         cartPage = new CartPage(driver);
