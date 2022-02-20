@@ -35,7 +35,7 @@ public class SauceDemoTest extends BaseTest {
     }
 
     @Test
-    public void linkedinLogoElement(){
+    public void linkedinLogoElementTest(){
         loginPage.login();
         removeTimeout();
         inventoryPage.clickLinkedinLink();
