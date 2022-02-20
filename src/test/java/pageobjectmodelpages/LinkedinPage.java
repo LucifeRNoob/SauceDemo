@@ -27,8 +27,6 @@ public class LinkedinPage extends BasePage {
     public boolean checkLogoElement (){
         return driver.findElement(LINKEDIN_LOGO).isDisplayed();
     }
-
-
 }
 
 
