@@ -6,6 +6,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import pageobjectmodelpages.CartPage;
 import pageobjectmodelpages.InventoryPage;
+import pageobjectmodelpages.LinkedinPage;
 import pageobjectmodelpages.LoginPage;
 import staticdata.WebTimeouts;
 import utilities.PropertiesManager;
@@ -18,6 +19,7 @@ public class BaseTest {
     LoginPage loginPage;
     InventoryPage inventoryPage;
     CartPage cartPage;
+    LinkedinPage linkedinPage;
 
     @BeforeMethod
     public void setUp() {
@@ -25,10 +27,19 @@ public class BaseTest {
         System.setProperty("webdriver.chrome.driver", propertiesManager.get("PATH_TO_CHROME_DRIVER"));
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(WebTimeouts.IMPLICIT_TIMEOUT, TimeUnit.SECONDS);
+        setTimeout();
         loginPage = new LoginPage(driver);
         inventoryPage = new InventoryPage(driver);
         cartPage = new CartPage(driver);
+        linkedinPage = new LinkedinPage(driver);
+    }
+
+    public void setTimeout() {
+        driver.manage().timeouts().implicitlyWait(WebTimeouts.IMPLICIT_TIMEOUT, TimeUnit.SECONDS);
+    }
+
+    public void removeTimeout() {
+        driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
     }
 
     @AfterMethod

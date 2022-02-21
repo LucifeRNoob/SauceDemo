@@ -9,7 +9,7 @@ public class InventoryPage extends BasePage {
     private By REMOVE_BUTTON = By.id("remove-sauce-labs-backpack");
     private By SHOPPING_CART = By.className("shopping_cart_link");
     private By INVENTORY_PAGE_TITLE = By.cssSelector(".title");
-
+    private By LINKEDIN_LINK = By.xpath("//li[@class='social_linkedin']");
 
     public InventoryPage(WebDriver driver) {
         super(driver);
@@ -29,5 +29,9 @@ public class InventoryPage extends BasePage {
 
     public boolean checkRemoveButton() {
         return driver.findElement(REMOVE_BUTTON).isDisplayed();
+    }
+
+    public void clickLinkedinLink (){
+        driver.findElement(LINKEDIN_LINK).click();
     }
 }

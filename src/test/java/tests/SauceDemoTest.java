@@ -33,4 +33,13 @@ public class SauceDemoTest extends BaseTest {
         Assert.assertEquals(cartPage.getProductPrice(), "$29.99");
         Assert.assertEquals(cartPage.getProductName(), "Sauce Labs Backpack");
     }
+
+    @Test
+    public void linkedinLogoElementTest(){
+        loginPage.login();
+        removeTimeout();
+        inventoryPage.clickLinkedinLink();
+        linkedinPage.switchOnNewTab();
+        Assert.assertTrue(linkedinPage.checkLogoElement(),"Element is not exist");
+    }
 }
