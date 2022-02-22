@@ -25,9 +25,5 @@ public class CartPage extends BasePage {
     public String getProductPrice() {
         return driver.findElement(INVENTORY_ITEM_PRICE).getText();
     }
-
-//    public boolean checkCartIsAvailable() {
-//        return driver.findElement(CART_PAGE_SPAN_TITLE).isDisplayed();
-//    }
 }
 

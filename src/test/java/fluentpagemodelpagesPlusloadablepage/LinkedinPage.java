@@ -29,10 +29,6 @@ public class LinkedinPage extends BasePage {
         wait.until(ExpectedConditions.visibilityOfElementLocated(LINKEDIN_LOGO));
         return this;
     }
-
-//    public boolean checkLogoElement (){
-//        return driver.findElement(LINKEDIN_LOGO).isDisplayed();
-//    }
 }
 
 
