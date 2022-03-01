@@ -11,6 +11,8 @@ import pageobjectmodelpages.InventoryPage;
 import pageobjectmodelpages.LinkedinPage;
 import pageobjectmodelpages.LoginPage;
 
+import java.net.MalformedURLException;
+
 
 public class BaseTest {
 
@@ -22,9 +24,9 @@ public class BaseTest {
     LinkedinPage linkedinPage;
 
     @BeforeMethod
-    public void setUp() {
+    public void setUp() throws MalformedURLException {
         DriverFactory factory = new DriverFactory();
-        driverManager = factory.getManager(DriverType.CHROME);
+        driverManager = factory.getManager(DriverType.REMOTE);
         driverManager.createDriver();
         driver = driverManager.getDriver();
         driverManager.maximize();

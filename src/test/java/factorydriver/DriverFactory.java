@@ -12,6 +12,9 @@ public class DriverFactory {
             case MOZILLA:
                 driverManager = new MozillaDriverManger();
                 break;
+            case REMOTE:
+                driverManager = new RemoteDriverManager();
+                break;
             default:
                 throw new IllegalStateException("Unexpected driver type: " + type);
         }

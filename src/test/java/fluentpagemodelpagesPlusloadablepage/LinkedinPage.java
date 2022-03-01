@@ -12,7 +12,6 @@ public class LinkedinPage extends BasePage {
 
     private By LINKEDIN_LOGO = By.className("nav__logo-link");
 
-
     @Override
     public boolean isElementExist() {
         return driver.findElement(LINKEDIN_LOGO).isDisplayed();
