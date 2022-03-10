@@ -4,16 +4,16 @@ import factorydriver.DriverFactory;
 import factorydriver.DriverManager;
 import factorydriver.DriverType;
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.*;
 import pageobjectmodelpages.CartPage;
 import pageobjectmodelpages.InventoryPage;
 import pageobjectmodelpages.LinkedinPage;
 import pageobjectmodelpages.LoginPage;
+import utilities.TestListeners;
 
 import java.net.MalformedURLException;
 
-
+@Listeners(TestListeners.class)
 public class BaseTest {
 
     WebDriver driver;
@@ -23,10 +23,15 @@ public class BaseTest {
     CartPage cartPage;
     LinkedinPage linkedinPage;
 
-    @BeforeMethod
-    public void setUp() throws MalformedURLException {
+    @BeforeSuite
+    @Parameters({"browser"})
+    public void setUp(@Optional("chrome") String browser) throws MalformedURLException {
         DriverFactory factory = new DriverFactory();
-        driverManager = factory.getManager(DriverType.REMOTE);
+        DriverType driverType = null;
+        if(browser.equals("chrome")) {
+            driverType = DriverType.CHROME;
+        }
+        driverManager = factory.getManager(driverType);
         driverManager.createDriver();
         driver = driverManager.getDriver();
         driverManager.maximize();
@@ -37,7 +42,11 @@ public class BaseTest {
         linkedinPage = new LinkedinPage(driver);
     }
 
-    @AfterMethod
+    public WebDriver getDriver() {
+        return driver;
+    }
+
+    @AfterSuite(alwaysRun = true)
     public void closeDriver() {
         driverManager.quitDriver();
     }
